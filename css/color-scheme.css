@@ -3,8 +3,8 @@
   --bg-body: #FFFFFF;
   --color-text-base: #666;
   --color-text-a: #666;
-  --color-text-a-hover: #000000;
-  --color-text-a-active: #000000;
+  --color-text-a-hover: #333;
+  --color-text-a-active: #333;
   --color-text-sub: #8e8e8e;
   --color-text-md-title: #24292e;
   --color-text-md-content: #24292e;
@@ -42,4 +42,21 @@
   --bg-block-md-table: #2E3440;
   --bg-block-md-table-2: #313744;
   --color-border-md-table: #4c566a;
+}
+
+/* Specific overrides to ensure markdown content is properly styled in dark mode */
+:root[color-mode="dark"] .markdown-body,
+:root[color-mode="dark"] .markdown-body p,
+:root[color-mode="dark"] .markdown-body h1,
+:root[color-mode="dark"] .markdown-body h2,
+:root[color-mode="dark"] .markdown-body h3,
+:root[color-mode="dark"] .markdown-body h4,
+:root[color-mode="dark"] .markdown-body h5,
+:root[color-mode="dark"] .markdown-body h6,
+:root[color-mode="dark"] .markdown-body li,
+:root[color-mode="dark"] .markdown-body ul,
+:root[color-mode="dark"] .markdown-body ol,
+:root[color-mode="dark"] .markdown-body span,
+:root[color-mode="dark"] .markdown-body div {
+  color: var(--color-text-md-content) !important;
 }

@@ -20,11 +20,28 @@ body.hidden {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   line-height: 2;
-  color: #24292e;
+  color: var(--color-text-md-content);
   font-size: 1.6rem;
   line-height: 2;
   word-wrap: break-word;
-  color: var(--color-text-md-content)
+}
+
+/* Ensure markdown body text colors are properly applied in dark mode */
+:root[color-mode="dark"] .markdown-body {
+  color: var(--color-text-md-content) !important;
+}
+
+:root[color-mode="dark"] .markdown-body * {
+  color: var(--color-text-md-content) !important;
+}
+
+/* Specific overrides for elements that might be affected by Gitalk */
+:root[color-mode="dark"] .post-content .markdown-body {
+  color: var(--color-text-md-content) !important;
+}
+
+:root[color-mode="dark"] .post-details .markdown-body {
+  color: var(--color-text-md-content) !important;
 }
 
 @media (max-width: 768px) {

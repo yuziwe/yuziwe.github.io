@@ -32,3 +32,209 @@
 #waline-comments {
   --waline-font-size: 16px;
 }
+
+/* gitalk comments dark mode styles */
+:root[color-mode="dark"] .gt-container {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container a {
+  color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container a:hover {
+  color: #6190e8;
+  border-color: #6190e8;
+}
+
+:root[color-mode="dark"] .gt-container .gt-svg svg {
+  fill: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-spinner::before {
+  border: 1px solid var(--color-text-base);
+  border-top-color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .gt-comment-content {
+  background-color: #3a4252;
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-comment-content:hover {
+  box-shadow: 0 0.625em 3.75em 0 #2a2f3a;
+}
+
+:root[color-mode="dark"] .gt-container .gt-comment-body {
+  color: var(--color-text-base) !important;
+}
+
+:root[color-mode="dark"] .gt-container .gt-header-textarea {
+  background-color: #3b4252;
+  color: var(--color-text-base);
+  border-color: #4c566a;
+}
+
+:root[color-mode="dark"] .gt-container .gt-header-textarea:hover {
+  background-color: #414a5c;
+}
+
+:root[color-mode="dark"] .gt-container .gt-header-preview {
+  background-color: #3b4252;
+  border-color: #4c566a;
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .markdown-body {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .markdown-body a {
+  color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .markdown-body a:hover {
+  color: #6190e8;
+}
+
+:root[color-mode="dark"] .gt-container .markdown-body blockquote {
+  color: var(--color-block-md-quote);
+  border-left-color: #4c566a;
+  background-color: #3a4252;
+}
+
+:root[color-mode="dark"] .gt-container .markdown-body pre {
+  background-color: #3a4252;
+  color: var(--color-text-md-pre);
+}
+
+:root[color-mode="dark"] .gt-container .gt-meta {
+  border-color: #4c566a;
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-user {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-comment {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-comments {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-link {
+  color: #81a6ed;
+  border-bottom-color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .gt-link:hover {
+  color: #6190e8;
+  border-bottom-color: #6190e8;
+}
+
+:root[color-mode="dark"] .gt-container .gt-btn {
+  background-color: #6190e8;
+  border-color: #6190e8;
+  color: #fff;
+}
+
+:root[color-mode="dark"] .gt-container .gt-btn:hover {
+  background-color: #81a6ed;
+  border-color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .gt-btn-preview {
+  background-color: transparent;
+  color: #81a6ed;
+  border-color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .gt-btn-preview:hover {
+  background-color: rgba(129, 166, 237, 0.1);
+  color: #6190e8;
+  border-color: #6190e8;
+}
+
+:root[color-mode="dark"] .gt-container .gt-btn-public:hover {
+  background-color: #81a6ed;
+  border-color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .gt-error {
+  color: #ff6b6b;
+}
+
+:root[color-mode="dark"] .gt-container .gt-comment-username {
+  color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .gt-comment-username:hover {
+  color: #6190e8;
+}
+
+:root[color-mode="dark"] .gt-container .gt-comment-text {
+  color: var(--color-text-sub);
+}
+
+:root[color-mode="dark"] .gt-container .gt-comment-date {
+  color: var(--color-text-sub);
+}
+
+:root[color-mode="dark"] .gt-container .gt-popup {
+  background: #3a4252;
+  border-color: #4c566a;
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-action {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-action:hover {
+  color: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .gt-action.is--active:before {
+  background: #81a6ed;
+}
+
+:root[color-mode="dark"] .gt-container .gt-version {
+  color: var(--color-text-sub);
+}
+
+:root[color-mode="dark"] .gt-container .gt-copyright {
+  border-color: #4c566a;
+  color: var(--color-text-sub);
+}
+
+:root[color-mode="dark"] .gt-container .gt-initing {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-initing-text {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .gt-container .gt-no-init {
+  color: var(--color-text-base);
+}
+
+:root[color-mode="dark"] .markdown-body pre,
+:root[color-mode="dark"] .markdown-body .highlight pre,
+:root[color-mode="dark"] .gt-container .gt-header-preview pre {
+  background-color: #3a4252;
+  color: var(--color-text-md-pre);
+}
+
+:root[color-mode="dark"] .markdown-body code,
+:root[color-mode="dark"] .gt-container code {
+  background-color: rgba(59, 66, 82, 0.5);
+  color: #e96900;
+}
+
+:root[color-mode="dark"] .markdown-body pre code {
+  background-color: transparent;
+}
