@@ -4,6 +4,45 @@
   
     
     <entry>
+      <title>技术书籍存档</title>
+      <link href="/2025/12/07/%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D%E5%AD%98%E6%A1%A3/"/>
+      <url>/2025/12/07/%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D%E5%AD%98%E6%A1%A3/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p><a href="https://www.liberoscarcelli.com/">liberascarcelli</a></p><ul><li><p><a href="EmbeddedLinux.pdf" title="嵌入式Linux">Embedded Linux</a></p></li><li><p><a href="ReverseEngineeringForBegineers.pdf" title="逆向工程">Reverse Engineering</a></p></li></ul></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>天马行空随心记</title>
+      <link href="/2025/12/07/%E5%A4%A9%E9%A9%AC%E8%A1%8C%E7%A9%BA%E9%9A%8F%E5%BF%83%E8%AE%B0/"/>
+      <url>/2025/12/07/%E5%A4%A9%E9%A9%AC%E8%A1%8C%E7%A9%BA%E9%9A%8F%E5%BF%83%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Static-link-warning-with-getaddrinfo"><a href="#Static-link-warning-with-getaddrinfo" class="headerlink" title="Static link warning with getaddrinfo"></a>Static link warning with <code>getaddrinfo</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Source - https://stackoverflow.com/q/2725255␍</span><br><span class="line">// Posted by Neeladri Vishweswaran, modified by community. See post <span class="string">&#x27;Timeline&#x27;</span> <span class="keyword">for</span> change <span class="built_in">history</span>␍</span><br><span class="line">// Retrieved 2025-12-07, License - CC BY-SA 4.0␍</span><br><span class="line">␍</span><br><span class="line">warning: Using <span class="string">&#x27;getaddrinfo&#x27;</span> <span class="keyword">in</span> statically linked applications requires at runtime the shared libraries from the glibc version used <span class="keyword">for</span> linking</span><br><span class="line"></span><br><span class="line">gcc -m32 -static -s -O2 -std=c99 -D_POSIX_C_SOURCE=200112L myprogram.c</span><br></pre></td></tr></table></figure><blockquote><p>glibc uses libnss to support a number of different providers for address resolution services. Unfortunately, you cannot statically link libnss, as exactly what providers it loads depends on the local system’s configuration.</p></blockquote><p>Maybe we can replace <code>glibc</code> with <code>musl-libc</code> to make everything work properly.</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RISV交叉编译器安装</title>
+      <link href="/2025/11/30/RISV%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%89%E8%A3%85/"/>
+      <url>/2025/11/30/RISV%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>Compile environment: Archlinux</p></blockquote><ul><li><a href="https://github.com/riscv-collab/riscv-gnu-toolchain">riscv-gnu-toolchain</a></li></ul><h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Syu curl python3 libmpc mpfr gmp base-devel texinfo gperf patchutils bc zlib expat libslirp</span><br></pre></td></tr></table></figure><h2 id="Get-Source"><a href="#Get-Source" class="headerlink" title="Get Source"></a>Get Source</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># clone</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/riscv/riscv-gnu-toolchain --depth 1</span><br><span class="line"><span class="comment"># update submodules</span></span><br><span class="line"><span class="comment"># ignore if you missing the `--depth -1` parameter</span></span><br><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure><h2 id="Compile-and-Installation"><a href="#Compile-and-Installation" class="headerlink" title="Compile and Installation"></a>Compile and Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=<span class="variable">$HOME</span>/opt/riscv</span><br><span class="line"><span class="comment"># glibc version</span></span><br><span class="line">make linux -j8</span><br><span class="line"><span class="comment"># muslc version</span></span><br><span class="line">make musl -j8</span><br></pre></td></tr></table></figure><blockquote><p>拆分任务数一定要量力而行，否则会把当前终端模拟器搞崩</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>初探Niri</title>
       <link href="/2025/11/23/%E5%88%9D%E6%8E%A2Niri/"/>
       <url>/2025/11/23/%E5%88%9D%E6%8E%A2Niri/</url>

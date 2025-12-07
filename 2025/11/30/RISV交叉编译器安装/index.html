@@ -13,7 +13,7 @@
   
   <title>
     
-      archive_a: 2025/11 
+      RISV交叉编译器安装 
       
       
       |
@@ -110,77 +110,161 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2025</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">RISV交叉编译器安装</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2025-12-07 15:59:01
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <blockquote>
+<p>Compile environment: Archlinux</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/riscv-collab/riscv-gnu-toolchain">riscv-gnu-toolchain</a></li>
+</ul>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Syu curl python3 libmpc mpfr gmp base-devel texinfo gperf patchutils bc zlib expat libslirp</span><br></pre></td></tr></table></figure>
+
+<h2 id="Get-Source"><a href="#Get-Source" class="headerlink" title="Get Source"></a>Get Source</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># clone</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/riscv/riscv-gnu-toolchain --depth 1</span><br><span class="line"><span class="comment"># update submodules</span></span><br><span class="line"><span class="comment"># ignore if you missing the `--depth -1` parameter</span></span><br><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
+
+<h2 id="Compile-and-Installation"><a href="#Compile-and-Installation" class="headerlink" title="Compile and Installation"></a>Compile and Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=<span class="variable">$HOME</span>/opt/riscv</span><br><span class="line"><span class="comment"># glibc version</span></span><br><span class="line">make linux -j8</span><br><span class="line"><span class="comment"># muslc version</span></span><br><span class="line">make musl -j8</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>拆分任务数一定要量力而行，否则会把当前终端模拟器搞崩</p>
+</blockquote>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2025/11/23/%E5%88%9D%E6%8E%A2Niri/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2025-12-07 15:59:01
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2025/12/07/%E5%A4%A9%E9%A9%AC%E8%A1%8C%E7%A9%BA%E9%9A%8F%E5%BF%83%E8%AE%B0/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="技术书籍存档">
-        <div class="time-m-d">12-07</div>
-        <div class="title">
-          <a href="/2025/12/07/%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D%E5%AD%98%E6%A1%A3/">
-            <span>技术书籍存档</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="天马行空随心记">
-        <div class="time-m-d">12-07</div>
-        <div class="title">
-          <a href="/2025/12/07/%E5%A4%A9%E9%A9%AC%E8%A1%8C%E7%A9%BA%E9%9A%8F%E5%BF%83%E8%AE%B0/">
-            <span>天马行空随心记</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites"><span class="toc-text">Prerequisites</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Source"><span class="toc-text">Get Source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Compile-and-Installation"><span class="toc-text">Compile and Installation</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="RISV交叉编译器安装">
-        <div class="time-m-d">11-30</div>
-        <div class="title">
-          <a href="/2025/11/30/RISV%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%89%E8%A3%85/">
-            <span>RISV交叉编译器安装</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="初探Niri">
-        <div class="time-m-d">11-23</div>
-        <div class="title">
-          <a href="/2025/11/23/%E5%88%9D%E6%8E%A2Niri/">
-            <span>初探Niri</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Wayland vs X11">
-        <div class="time-m-d">11-21</div>
-        <div class="title">
-          <a href="/2025/11/21/Wayland-vs-X11/">
-            <span>Wayland vs X11</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="我的第一台路由器">
-        <div class="time-m-d">11-16</div>
-        <div class="title">
-          <a href="/2025/11/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%B0%E8%B7%AF%E7%94%B1%E5%99%A8/">
-            <span>我的第一台路由器</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+  <div id="gitalk-container"></div>
+
+  <script>
+    function loadGitalkSuc() {
+      const gitalk = new Gitalk({
+        clientID: 'Ov23limkk0qt1yYBZwZV',
+        clientSecret: 'f53b76b89152c9e9b9ccb909f6350c119544383b',
+        repo: 'yuziwe.github.io',
+        owner: 'yuziwe',
+        admin: ['yuziwe'],
+        id: location.pathname,
+        distractionFreeMode: false
+      })
+
+      gitalk.render('gitalk-container')
+    }
+  </script>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" onload="loadGitalkSuc(this)"></script>
+  
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -437,6 +521,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + RISV%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%89%E8%A3%85 + '&url=' + https%3A%2F%2Fyuziwe.github.io%2F2025%2F11%2F30%2FRISV%25E4%25BA%25A4%25E5%258F%2589%25E7%25BC%2596%25E8%25AF%2591%25E5%2599%25A8%25E5%25AE%2589%25E8%25A3%2585%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://yuziwe.github.io/2025/11/30/RISV%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%89%E8%A3%85/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
