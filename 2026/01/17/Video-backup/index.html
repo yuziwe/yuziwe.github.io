@@ -13,7 +13,7 @@
   
   <title>
     
-      archive_a: 2025 
+      Video-backup 
       
       
       |
@@ -110,120 +110,156 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2026</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Video-backup</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2026-01-17 09:11:17
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>在我们日常网上冲浪中，会刷到一些触及心灵的视频从而想保存下来以便后续细细品味，但是诸如B站，Y站的视频平台并不提供离线下载的功能。</p>
+<p>“你所看到的离线下载是加密过的，只能在对应平台上播放，无法通过ffplay或vlc等视频播放器播放。”</p>
+<p>因此，如何下载这些视频是值得我们探究的。</p>
+<h1 id="Core"><a href="#Core" class="headerlink" title="Core"></a>Core</h1><p>幸运的是，我们找到了<a target="_blank" rel="noopener" href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a>。</p>
+<p>这是一个命令行工具，可以用来下载各种平台的音频&#x2F;视频。</p>
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><ol>
+<li><p>安装可执行文件（见<a target="_blank" rel="noopener" href="https://github.com/yt-dlp/yt-dlp/blob/master/README.md">README</a>）</p>
+</li>
+<li><p>导出对应平台的cookies，可借助某些浏览器插件完成，例如<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc">Get cookies.txt LOCALLY</a>。</p>
+</li>
+<li><p>下载启动。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp --cookies &lt;platform cookies&gt; --merge-output-format mp4 &lt;viedo url&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>That’s it.</p>
+<p>就这么简单，什么IDM，什么在线高清解析下载网站，都弱爆了，它们底层都是依赖的yt-dlp和ffmpeg。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2026/01/03/World-connecting/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2026-01-17 09:11:17
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="Video-backup">
-        <div class="time-m-d">01-17</div>
-        <div class="title">
-          <a href="/2026/01/17/Video-backup/">
-            <span>Video-backup</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="World connecting">
-        <div class="time-m-d">01-03</div>
-        <div class="title">
-          <a href="/2026/01/03/World-connecting/">
-            <span>World connecting</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2025</span>
-          </h2>
-        </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
       
-      <div class="post-item" title="我的第一个充电宝">
-        <div class="time-m-d">12-15</div>
-        <div class="title">
-          <a href="/2025/12/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%85%E7%94%B5%E5%AE%9D/">
-            <span>我的第一个充电宝</span>
-          </a>
-        </div>
-      </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Core"><span class="toc-text">Core</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Usage"><span class="toc-text">Usage</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="Game-Auxiliary">
-        <div class="time-m-d">12-15</div>
-        <div class="title">
-          <a href="/2025/12/15/Game-Auxiliary/">
-            <span>Game-Auxiliary</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="技术书籍存档">
-        <div class="time-m-d">12-07</div>
-        <div class="title">
-          <a href="/2025/12/07/%E6%8A%80%E6%9C%AF%E4%B9%A6%E7%B1%8D%E5%AD%98%E6%A1%A3/">
-            <span>技术书籍存档</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="天马行空随心记">
-        <div class="time-m-d">12-07</div>
-        <div class="title">
-          <a href="/2025/12/07/%E5%A4%A9%E9%A9%AC%E8%A1%8C%E7%A9%BA%E9%9A%8F%E5%BF%83%E8%AE%B0/">
-            <span>天马行空随心记</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="RISV交叉编译器安装">
-        <div class="time-m-d">11-30</div>
-        <div class="title">
-          <a href="/2025/11/30/RISV%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%89%E8%A3%85/">
-            <span>RISV交叉编译器安装</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="初探Niri">
-        <div class="time-m-d">11-23</div>
-        <div class="title">
-          <a href="/2025/11/23/%E5%88%9D%E6%8E%A2Niri/">
-            <span>初探Niri</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Wayland vs X11">
-        <div class="time-m-d">11-21</div>
-        <div class="title">
-          <a href="/2025/11/21/Wayland-vs-X11/">
-            <span>Wayland vs X11</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="我的第一台路由器">
-        <div class="time-m-d">11-16</div>
-        <div class="title">
-          <a href="/2025/11/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%B0%E8%B7%AF%E7%94%B1%E5%99%A8/">
-            <span>我的第一台路由器</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+  <div id="gitalk-container"></div>
+
+  <script>
+    function loadGitalkSuc() {
+      const gitalk = new Gitalk({
+        clientID: 'Ov23limkk0qt1yYBZwZV',
+        clientSecret: 'f53b76b89152c9e9b9ccb909f6350c119544383b',
+        repo: 'yuziwe.github.io',
+        owner: 'yuziwe',
+        admin: ['yuziwe'],
+        id: location.pathname,
+        distractionFreeMode: false
+      })
+
+      gitalk.render('gitalk-container')
+    }
+  </script>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" onload="loadGitalkSuc(this)"></script>
+  
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -480,6 +516,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Video-backup + '&url=' + https%3A%2F%2Fyuziwe.github.io%2F2026%2F01%2F17%2FVideo-backup%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://yuziwe.github.io/2026/01/17/Video-backup/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

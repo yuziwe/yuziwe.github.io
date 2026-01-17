@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Video-backup</title>
+      <link href="/2026/01/17/Video-backup/"/>
+      <url>/2026/01/17/Video-backup/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>在我们日常网上冲浪中，会刷到一些触及心灵的视频从而想保存下来以便后续细细品味，但是诸如B站，Y站的视频平台并不提供离线下载的功能。</p><p>“你所看到的离线下载是加密过的，只能在对应平台上播放，无法通过ffplay或vlc等视频播放器播放。”</p><p>因此，如何下载这些视频是值得我们探究的。</p><h1 id="Core"><a href="#Core" class="headerlink" title="Core"></a>Core</h1><p>幸运的是，我们找到了<a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a>。</p><p>这是一个命令行工具，可以用来下载各种平台的音频&#x2F;视频。</p><h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><ol><li><p>安装可执行文件（见<a href="https://github.com/yt-dlp/yt-dlp/blob/master/README.md">README</a>）</p></li><li><p>导出对应平台的cookies，可借助某些浏览器插件完成，例如<a href="https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc">Get cookies.txt LOCALLY</a>。</p></li><li><p>下载启动。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp --cookies &lt;platform cookies&gt; --merge-output-format mp4 &lt;viedo url&gt;</span><br></pre></td></tr></table></figure></li></ol><p>That’s it.</p><p>就这么简单，什么IDM，什么在线高清解析下载网站，都弱爆了，它们底层都是依赖的yt-dlp和ffmpeg。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>World connecting</title>
       <link href="/2026/01/03/World-connecting/"/>
       <url>/2026/01/03/World-connecting/</url>
