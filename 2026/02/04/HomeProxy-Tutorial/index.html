@@ -159,15 +159,50 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2026-02-04 14:43:12
+          2026-02-07 07:46:06
         </span>
         
       </div>
       <div class="markdown-body">
-        <h2 id="RuleSet"><a href="#RuleSet" class="headerlink" title="RuleSet"></a>RuleSet</h2><p>CDN:</p>
+        <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>HomeProxy是一个运行在<code>openwrt</code>或其他衍生路由系统的前端代理工具，主要用于做路由分流的可视化配置，其内核仍是强大的<code>sing-box</code>。</p>
+<h1 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h1><p>HomeProxy的配置还是算简单明了的。</p>
+<h2 id="RuleSet"><a href="#RuleSet" class="headerlink" title="RuleSet"></a>RuleSet</h2><p>规则集包含一组IP或域名的集合，由相关社区推动收集各大网站的潜在域名、IP。</p>
+<p>用如下CDN前缀可避免路由系统初始化时未能及时初始化规则集而导致相关<code>sing-box</code>配置无法自动生成，最终导致<code>sing-box</code>内核崩溃。</p>
 <ul>
 <li><code>https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/</code></li>
 </ul>
+<p>具体如何组装，可以参加各规则集仓库路径拼接即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># e.g.</span></span><br><span class="line">https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs</span><br></pre></td></tr></table></figure>
+
+<p>这些规则集可用在DNS规则及路由规则中。</p>
+<h2 id="Routing-Rule"><a href="#Routing-Rule" class="headerlink" title="Routing Rule"></a>Routing Rule</h2><p>路由规则和内核路由表项相差无几，只需要注意优先级顺序的问题即可。</p>
+<p>推荐的顺序如下：</p>
+<ol>
+<li><p>自定义规则集；</p>
+</li>
+<li><p>国内规则集；</p>
+</li>
+<li><p>非国内规则集；</p>
+</li>
+</ol>
+<h2 id="DNS-Server"><a href="#DNS-Server" class="headerlink" title="DNS Server"></a>DNS Server</h2><p>DNS的查询请求方式，大致可分为3种。</p>
+<ol>
+<li><p>DNS-UDP：此种方式最常见，使用UDP协议交互；</p>
+</li>
+<li><p>DNS Over TLS：在TLS连接隧道中传递DNS请求，隐藏目的解析；</p>
+</li>
+<li><p>DNS Over HTTPS：将DNS请求隐匿在正常的HTTP流量中，同样也可以隐匿真实解析目的；</p>
+</li>
+</ol>
+<p>要说用哪个好，首推DoH方式，因为DoT用了其他的端口，容易被统计觉察。</p>
+<p>推荐的DoH提供商：</p>
+<ul>
+<li><p><code>https://cloudflare-dns.com/dns-query</code></p>
+</li>
+<li><p><code>https://dns.google/dns-query</code></p>
+</li>
+</ul>
+<h2 id="DNS-Rule"><a href="#DNS-Rule" class="headerlink" title="DNS Rule"></a>DNS Rule</h2><p>和路由规则一样，注意优先级即可。</p>
 
       </div>
       
@@ -183,7 +218,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2026-02-04 14:43:12
+              2026-02-07 07:46:06
             </span>
             
           </div>
@@ -201,7 +236,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RuleSet"><span class="toc-text">RuleSet</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuration"><span class="toc-text">Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RuleSet"><span class="toc-text">RuleSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Routing-Rule"><span class="toc-text">Routing Rule</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS-Server"><span class="toc-text">DNS Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS-Rule"><span class="toc-text">DNS Rule</span></a></li></ol></li></ol>
       
     </div>
   </div>
