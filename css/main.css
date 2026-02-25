@@ -1291,6 +1291,27 @@ figure .pin-copy {
   color: var(--color-text-md-content) !important;
 }
 
+/* Specific table styles for dark mode */
+:root[color-mode="dark"] .markdown-body table {
+  color: var(--color-text-md-content) !important;
+}
+
+:root[color-mode="dark"] .markdown-body table th,
+:root[color-mode="dark"] .markdown-body table td {
+  color: var(--color-text-md-content) !important;
+  border-color: var(--color-border-md-table) !important;
+  background-color: var(--bg-block-md-table) !important;
+}
+
+:root[color-mode="dark"] .markdown-body table tr {
+  background-color: var(--bg-block-md-table) !important;
+  border-top-color: var(--color-border-md-table) !important;
+}
+
+:root[color-mode="dark"] .markdown-body table tr:nth-child(2n) {
+  background-color: var(--bg-block-md-table-2) !important;
+}
+
 * {
   margin: 0;
   padding: 0;
