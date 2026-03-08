@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>LLM on Android</title>
+      <link href="/2026/03/08/LLM-on-Android/"/>
+      <url>/2026/03/08/LLM-on-Android/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>There are a lot of LLM which support runs on local machine even an Android phone.It is just because LLM can also run on CPU, selecting a model formated with <code>GGUF</code> and loading into <code>PocketPal</code> application or using <code>ollama</code> directly on <code>Termux</code> application——That what i’m going to talking about today.</p><h1 id="Install-ollama"><a href="#Install-ollama" class="headerlink" title="Install ollama"></a>Install ollama</h1><ol><li><p>Install ollama</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkg update &amp;&amp; pkg upgrade -y</span><br><span class="line">pkg install ollama</span><br></pre></td></tr></table></figure></li><li><p>Start ollama service</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama serve 2&gt;&amp;1 &gt; ollama.log &amp;</span><br></pre></td></tr></table></figure></li><li><p>Pull and start LLM</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama run qwen3.5:0.8b</span><br></pre></td></tr></table></figure></li><li><p>Bug fix</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">time=2026-03-08T14:36:19.130Z level=INFO source=server.go:430 msg=&quot;starting runner&quot; cmd=&quot;serve runner --ollama-engine --model /data/data/com.termux/files/home/.ollama/models/blobs/sha256-cedf89af31c9041b601fa58303285bc46d99c51baee1b13f5e919626ca526ee5 --port 37209&quot;</span><br><span class="line">time=2026-03-08T14:36:19.131Z level=INFO source=sched.go:473 msg=&quot;NewLlamaServer failed&quot; model=/data/data/com.termux/files/home/.ollama/models/blobs/sha256-cedf89af31c9041b601fa58303285bc46d99c51baee1b13f5e919626ca526ee5 error=&quot;error starting runner: exec: \&quot;serve\&quot;: executable file not found in $PATH &quot;</span><br><span class="line">Error: 500 Internal Server Error: error starting runner: exec: &quot;serve&quot;: executable file not found in $PATH</span><br></pre></td></tr></table></figure> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s <span class="variable">$PREFIX</span>/bin/ollama <span class="variable">$PREFIX</span>/bin/serve</span><br></pre></td></tr></table></figure><p> I’m don’t know why…But it works.</p></li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[AI-Thinking] Company Competition</title>
       <link href="/2026/02/16/AI-Thinking-Company-Competition/"/>
       <url>/2026/02/16/AI-Thinking-Company-Competition/</url>
