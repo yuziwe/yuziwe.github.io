@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>fuck windows with qemu</title>
+      <link href="/2026/04/02/fuck-windows-with-qemu/"/>
+      <url>/2026/04/02/fuck-windows-with-qemu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>This is the first time i run Windows operating system using <code>QEMU</code>.</p><p>So, let’s do it!</p><h1 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h1><ol><li><p>qemu-img</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy qemu-img</span><br></pre></td></tr></table></figure></li><li><p>qemu-full</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy qemu-full</span><br></pre></td></tr></table></figure></li></ol><h1 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h1><ol><li><p>Create a disk image</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img create -f qcow2 win10.qcow2 50G</span><br></pre></td></tr></table></figure></li><li><p>Get a Windows iso file from official website</p></li><li><p>Get a drive collections from <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.285-1/">Fedora</a></p></li><li><p>Boot system</p> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./win10.sh -boot d -drive file=win10cd.iso,media=cdrom -drive file=virtio-win.iso,media=cdrom</span><br></pre></td></tr></table></figure></li><li><p>GUI installation</p></li><li><p>Install drivers, they are located in <code>E:\</code>.</p><ul><li><p>Ethernet Controller Driver</p></li><li><p>HID Driver (Human Interface Device)</p></li><li><p>Display Driver(Maybe optional)</p></li></ul></li></ol><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul><li><a href="https://pragmaticaddict.com/qemu-win10.html">Virtualize Windows 10 using QEMU</a></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LLM on Android</title>
       <link href="/2026/03/08/LLM-on-Android/"/>
       <url>/2026/03/08/LLM-on-Android/</url>
