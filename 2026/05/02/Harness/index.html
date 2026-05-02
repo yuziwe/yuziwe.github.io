@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="yuziwe" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      Harness 
+      
+      
+      |
+    
+     Yuzi
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H0T3X6BSRZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-H0T3X6BSRZ');
+    </script>
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Oranges</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Harness</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2026-05-02 16:36:06
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <ul>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Harness design for long-running application development</a></li>
+</ul>
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Harness 工程的本质，不是让模型本身变得更聪明，而是通过外部结构把模型的输出变得可约束、可检查、可迭代。</p>
+<p>Anthropic 的文章给了一个很清晰的结构：Planner, Generator, Evaluator。Planner 把一句话需求扩展成产品 spec；Generator 按模块实现；Evaluator 使用真实工具测试结果。真正关键的连接层是 Contract：在每个 sprint 开始前，Generator 和 Evaluator 先对「这轮到底算完成什么」达成一致，把模糊目标转成可验证的 checklist。</p>
+<p>也就是说，Harness 的核心不是多 Agent，而是把模型容易失败的地方显式工程化：先识别失败模式，再为每种失败模式设计外部约束、工具和反馈回路。</p>
+<h2 id="Contract-Example"><a href="#Contract-Example" class="headerlink" title="Contract Example"></a>Contract Example</h2><p>一个典型的 Contract 不应该只描述 UI 上有什么，而应该描述用户能力、完成标准和可复现的 QA 路径。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Feature:</span><br><span class="line"><span class="bullet">-</span> 用户能在关卡中放置 entity spawn point</span><br><span class="line"></span><br><span class="line">Done means:</span><br><span class="line"><span class="bullet">-</span> 点击 entity 工具后，可以在 canvas 上放置 spawn point</span><br><span class="line"><span class="bullet">-</span> spawn point 可被选中</span><br><span class="line"><span class="bullet">-</span> 按 Delete 可以删除选中的 spawn point</span><br><span class="line"><span class="bullet">-</span> 保存后刷新，spawn point 的存在/删除状态仍然正确</span><br><span class="line"></span><br><span class="line">QA procedure:</span><br><span class="line"><span class="bullet">-</span> 创建项目</span><br><span class="line"><span class="bullet">-</span> 创建 entity</span><br><span class="line"><span class="bullet">-</span> 放置 entity spawn point</span><br><span class="line"><span class="bullet">-</span> 点击 spawn point 进行选择</span><br><span class="line"><span class="bullet">-</span> 按 Delete</span><br><span class="line"><span class="bullet">-</span> 刷新页面</span><br><span class="line"><span class="bullet">-</span> 检查 canvas 和数据库状态</span><br></pre></td></tr></table></figure>
+
+<p>Evaluator 的价值在于，它不会只看「页面上有没有 Delete 按钮」，而是实际执行用户路径。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Bad QA:</span><br><span class="line"><span class="bullet">-</span> 页面里有 Delete 按钮，所以通过</span><br><span class="line"></span><br><span class="line">Good QA:</span><br><span class="line"><span class="bullet">-</span> 点击 entity 工具</span><br><span class="line"><span class="bullet">-</span> 在 canvas 放置 spawn point</span><br><span class="line"><span class="bullet">-</span> 点击该 spawn point</span><br><span class="line"><span class="bullet">-</span> 按 Delete</span><br><span class="line"><span class="bullet">-</span> 刷新页面</span><br><span class="line"><span class="bullet">-</span> 检查 canvas 中不再显示该 spawn point</span><br><span class="line"><span class="bullet">-</span> 检查数据库中对应记录已删除或状态正确</span><br></pre></td></tr></table></figure>
+
+<p>更理想的 Evaluator 输出应该是可复现的 bug report，而不是一句「不符合预期」。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Contract criterion:</span><br><span class="line"><span class="bullet">-</span> User can select and delete placed entity spawn points.</span><br><span class="line"></span><br><span class="line">Evaluator finding:</span><br><span class="line"><span class="bullet">-</span> FAIL: 点击 entity 后只设置了 selectedEntityId，没有设置 selection。</span><br><span class="line"><span class="bullet">-</span> Delete handler 同时要求 selection 和 selectedEntityId，因此 Delete 不生效。</span><br><span class="line"></span><br><span class="line">Repro:</span><br><span class="line"><span class="bullet">1.</span> 创建 entity</span><br><span class="line"><span class="bullet">2.</span> 放置到 canvas</span><br><span class="line"><span class="bullet">3.</span> 点击选中</span><br><span class="line"><span class="bullet">4.</span> 按 Delete</span><br><span class="line"></span><br><span class="line">Expected:</span><br><span class="line"><span class="bullet">-</span> entity 从 canvas 消失</span><br><span class="line"><span class="bullet">-</span> 数据库中的 spawn point 被删除或标记删除</span><br><span class="line"></span><br><span class="line">Actual:</span><br><span class="line"><span class="bullet">-</span> UI 无变化</span><br><span class="line"><span class="bullet">-</span> 刷新后 entity 仍存在</span><br></pre></td></tr></table></figure>
+
+<p>这就是 Contract 的意义：它不是写给人看的流程文档，而是给 Evaluator 提供一个可以执行、可以判定、可以回归的测试面。</p>
+<h2 id="Design-Pattern-of-AI-Agent"><a href="#Design-Pattern-of-AI-Agent" class="headerlink" title="Design Pattern of AI Agent"></a>Design Pattern of AI Agent</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> Planner</span><br><span class="line">输入一句话需求</span><br><span class="line">输出产品 spec、核心用户路径、模块列表、非目标</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> Contract</span><br><span class="line">每个模块开工前，Generator 和 Evaluator 先协商：</span><br><span class="line"><span class="bullet">-</span> 本 sprint 要交付的用户能力</span><br><span class="line"><span class="bullet">-</span> done criteria</span><br><span class="line"><span class="bullet">-</span> QA steps</span><br><span class="line"><span class="bullet">-</span> 失败条件</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> Generator</span><br><span class="line">按 contract 实现</span><br><span class="line">每完成一个模块提交可运行版本</span><br><span class="line">先自测，再交给 Evaluator</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> Evaluator</span><br><span class="line">用真实工具测试：</span><br><span class="line"><span class="bullet">-</span> 浏览器点击</span><br><span class="line"><span class="bullet">-</span> API 调用</span><br><span class="line"><span class="bullet">-</span> 数据库检查</span><br><span class="line"><span class="bullet">-</span> 刷新/重启/异常路径</span><br><span class="line"><span class="bullet">-</span> 关键用户路径回放</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> Feedback loop</span><br><span class="line">失败则返回可复现 bug</span><br><span class="line">Generator 修复</span><br><span class="line">Evaluator 回归</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> Stop condition</span><br><span class="line">核心路径全部通过</span><br><span class="line">非核心问题进入 backlog</span><br></pre></td></tr></table></figure>
+
+<p>这里要注意，Evaluator 本身也不是天然可靠的。Anthropic 在文章里提到，Claude 默认做 QA 时也会偏宽松：它可能发现了真实问题，但又说服自己「这不算大问题」，最后仍然通过。因此，Evaluator 的 prompt、评分标准和 few-shot examples 也需要持续调试。</p>
+<p>换句话说，Harness 不是把一个模型拆成几个名字不同的模型，而是让不同角色承担不同的压力：Generator 负责实现，Evaluator 负责怀疑，Contract 负责把争论限制在可验证的范围里。</p>
+<h2 id="Boundary"><a href="#Boundary" class="headerlink" title="Boundary"></a>Boundary</h2><p>Harness 也不是免费午餐。</p>
+<p>Anthropic 的例子里，solo run 大约 20 分钟、9 美元；full harness 大约 6 小时、200 美元。新版 DAW harness 也接近 4 小时、124.70 美元。它带来的质量提升很明显，但成本、延迟和编排复杂度也显著增加。</p>
+<p>所以问题不是「要不要永远使用 Harness」，而是：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">什么时候任务已经超过了当前模型稳定 solo 完成的边界？</span><br></pre></td></tr></table></figure>
+
+<p>可以用这些问题判断：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 任务是否长到容易出现 scope drift？</span><br><span class="line">2. 模型是否经常做到一半就开始收尾？</span><br><span class="line">3. 结果是否必须通过真实交互验证？</span><br><span class="line">4. 错误是否会跨模块扩散？</span><br><span class="line">5. 单 Agent 是否容易自我评价过宽？</span><br><span class="line">6. 额外的成本和延迟是否可以接受？</span><br></pre></td></tr></table></figure>
+
+<p>如果答案大多是否定的，Harness 可能只是昂贵的过度设计。如果答案大多是肯定的，Harness 才开始体现价值。</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>随着模型能力变强，这些辅助式的架构或工具看起来似乎会变得不再重要，因为模型本身已经可以应对足够复杂的长时间任务。</p>
+<p>但我的理解恰好相反：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">模型能力的变强并不意味着 Agent 工程的消失，</span><br><span class="line">反而会成为 Agent 工程新的起点和发力点。</span><br></pre></td></tr></table></figure>
+
+<p>具体来说，Skill、MCP、Harness 都是在处理模型能力边界，但它们处理的是不同层次的问题：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Skill:</span><br><span class="line">约束模型的行为、审美、流程和领域知识</span><br><span class="line"></span><br><span class="line">MCP:</span><br><span class="line">扩展模型可使用的外部工具和上下文入口</span><br><span class="line"></span><br><span class="line">Harness:</span><br><span class="line">编排任务、角色、验证和反馈闭环</span><br></pre></td></tr></table></figure>
+
+<p>设计一个系统，往往不是把所有东西都内化成一个通用范式，而是持续观察当前基础模型的能力边界在哪里，然后把边界处的失败模式工程化。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">失败原因 A：模型总是低估需求范围</span><br><span class="line">=&gt; 加 Planner</span><br><span class="line"></span><br><span class="line">失败原因 B：模型能写代码，但 UI 交互坏了</span><br><span class="line">=&gt; 加 Playwright Evaluator</span><br><span class="line"></span><br><span class="line">失败原因 C：模型做一半开始收尾</span><br><span class="line">=&gt; 加 handoff / compaction / context reset</span><br><span class="line"></span><br><span class="line">失败原因 D：模型生成了假功能，按钮只是摆设</span><br><span class="line">=&gt; QA contract 要测试真实交互，而不是看 UI 是否存在</span><br><span class="line"></span><br><span class="line">失败原因 E：模型每轮修 bug 又引入新 bug</span><br><span class="line">=&gt; 加 regression test / git checkpoint</span><br><span class="line"></span><br><span class="line">失败原因 F：Evaluator 太宽松，发现问题后仍然放行</span><br><span class="line">=&gt; 调 evaluator prompt、评分标准和 few-shot examples</span><br></pre></td></tr></table></figure>
+
+<p>新的模型发布，会解决一部分旧边界，也会暴露新的边界。Agent 工程真正有价值的地方，就是不断找到这些新的边界，并为它们设计合适的 Harness。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2026/05/02/GPT-Plus%E4%B9%8B%E6%AE%87/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2026-05-02 16:36:06
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Contract-Example"><span class="toc-text">Contract Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-Pattern-of-AI-Agent"><span class="toc-text">Design Pattern of AI Agent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boundary"><span class="toc-text">Boundary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-text">Summary</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+  <div id="gitalk-container"></div>
+
+  <script>
+    function loadGitalkSuc() {
+      const gitalk = new Gitalk({
+        clientID: 'Ov23limkk0qt1yYBZwZV',
+        clientSecret: 'f53b76b89152c9e9b9ccb909f6350c119544383b',
+        repo: 'yuziwe.github.io',
+        owner: 'yuziwe',
+        admin: ['yuziwe'],
+        id: location.pathname,
+        distractionFreeMode: false
+      })
+
+      gitalk.render('gitalk-container')
+    }
+  </script>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" onload="loadGitalkSuc(this)"></script>
+  
+
+
+
+      </div>
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+              <a title="github" target="_blank" rel="noopener" href="https://github.com/yuziwe">
+                <i class="iconfont icon-github"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2026 Oranges</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="where are you?">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Harness + '&url=' + https%3A%2F%2Fyuziwe.github.io%2F2026%2F05%2F02%2FHarness%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://yuziwe.github.io/2026/05/02/Harness/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
