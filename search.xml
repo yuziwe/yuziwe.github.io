@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>different behaviour of basename</title>
+      <link href="/2026/05/08/different-behaviour-of-basename/"/>
+      <url>/2026/05/08/different-behaviour-of-basename/</url>
+      
+        <content type="html"><![CDATA[<p>The command: <code>basename</code> exhibit different syntax on different linux distros.</p><p>On Ubuntu18, it’s <code>perl</code> version, we need to use syntax like <code>sed</code> command, ships with ‘s’ flag.</p><p>On other platform, it’s <code>util-linux</code> version. Syntax is more convenient for us.</p><p>All in all, stay focus on the syntax usage of <code>rename</code>!</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>51的独居生活</title>
       <link href="/2026/05/08/51%E7%9A%84%E7%8B%AC%E5%B1%85%E7%94%9F%E6%B4%BB/"/>
       <url>/2026/05/08/51%E7%9A%84%E7%8B%AC%E5%B1%85%E7%94%9F%E6%B4%BB/</url>
