@@ -159,13 +159,15 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2026-05-09 13:45:39
+          2026-05-24 06:40:44
         </span>
         
       </div>
       <div class="markdown-body">
         <blockquote>
-<p><a href="README.md">Original</a></p>
+<p>[!NOTE]</p>
+<p>原文作者已经披露PoC，原理是在旁路由进行流量劫持，基于vless协议的sessionID可重复使用以及双TLS栈的特性，对目标服务器进行replay operation（所谓的“精心构造”的探针报文），检测到服务器返回不一致的错误码就会被判定为使用了基于vless的代理协议服务器，从而达到拦截目的。</p>
+<p>BUT，TLS标准中对不完整的报文或非法报文早有不同错误码的定义，因此该PoC应该只是一场博眼球的滑稽之作。</p>
 </blockquote>
 <p>各位好。笔者作为一名网络安全行业的从业者，出于工作原因及个人志趣，自2010年前后起便持续关注突破网络审查（翻墙）协议社区的发展，并对绝大多数现有协议进行过深入的技术剖析。长期以来，笔者时常目睹RPRX（社区常俗称R主席）发表的诸多违背常理之言论，对此颇为反感。近期适逢防火长城（GFW）封锁加剧，RPRX再度声称唯有其主导的VLESS&#x2F;XTLS&#x2F;REALITY协议方能实现直连，并将其他协议贬低为毫无价值之物。笔者本对此类营销式说辞不屑一顾，然出于探究之目的略作审视，未曾想仅耗时十分钟，便触及该协议之致命漏洞——该漏洞能够以近乎100%的准确度探测出VLESS&#x2F;XTLS&#x2F;REALITY流量，且误判率极低。</p>
 <p>应当明确，几乎所有主流翻墙协议面对审查时，皆仅存在概率性被封锁的风险，而极难被精准识别。笔者在此必须强调一个严峻的事实：<strong>倘若翻墙协议能够被精准定性，那便意味着翻墙者本人的网络行为及物理位置，亦可被审查方精准定位</strong>。</p>
@@ -245,7 +247,7 @@
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2026/05/09/vless-reality-gonna-to-die/README/" target="_self">
+              <a href="/2026/05/08/different-behaviour-of-basename/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -254,7 +256,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2026-05-09 13:45:39
+              2026-05-24 06:40:44
             </span>
             
           </div>
