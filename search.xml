@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Computing Power Lease Experience</title>
+      <link href="/2026/05/27/Computing-Power-Lease-Experience/"/>
+      <url>/2026/05/27/Computing-Power-Lease-Experience/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>随着AI浪潮的持续冲击，显卡和内存的价格已经涨上了天。</p><p>普通人想玩玩前沿模型或者做一些微调，付出的成本看起来有点高了。</p><p>幸好国内的算力租赁平台价格还算公道，操作也还算简便，我们又看到了曙光。</p><p>今天要分享的是在<a href="https://suanli.cn/">共绩算力</a>平台上跑<a href="https://github.com/antirez/ds4">ds4</a>本地推理引擎时踩的坑。</p><h2 id="Black-hole"><a href="#Black-hole" class="headerlink" title="Black hole"></a>Black hole</h2><ol><li><p>自己构建并推送到远端的镜像，Dockerfile里面一定要指定Entrypoint，而且得是可以loop的那种，比如<code>tail -f /dev/null</code>，否则节点就会启动失败！</p></li><li><p><strong>ds4</strong>仅支持单卡推理，要是你通过<code>watch -n 1 nvdia-smi</code>发现只有一张卡在跑，那也算正常现象。</p></li><li><p>要想下载一些模型进行微调或者运行，最好还是直接拉取现成的镜像或者自己构建，在节点环境里面下载实在太慢，容易烧钱。</p></li><li><p>自己构建出来的镜像一般都要100GB左右，推送还是有些慢的，最好用AI辅助下，实时监控状态，失败也可以让AI重试（我这里指的是hermes等assistant agent）。</p></li><li><p>镜像仓库存储费用当前还可以，每月有20GB的免费额度，按月结算。</p></li><li><p>不小心误删镜像也没关系，重新推送即可，该平台貌似在删除后还会保留一段时间。</p></li></ol><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>总的来说，大概4块钱一小时就可以租到两张4090和较大内存的机器，还是按秒收费的，除了用来跑模型，也可以用来编译一些大型项目，也可以用来测试你自己的程序等等。</p><p>玩法很多，就看你自己的需求了。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vless reality gonna to die</title>
       <link href="/2026/05/09/vless-reality-gonna-to-die/"/>
       <url>/2026/05/09/vless-reality-gonna-to-die/</url>

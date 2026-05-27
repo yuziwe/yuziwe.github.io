@@ -13,7 +13,7 @@
   
   <title>
     
-      archive_a: 2026/5 
+      Computing Power Lease Experience 
       
       
       |
@@ -110,273 +110,161 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2026</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Computing Power Lease Experience</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2026-05-27 14:48:58
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>随着AI浪潮的持续冲击，显卡和内存的价格已经涨上了天。</p>
+<p>普通人想玩玩前沿模型或者做一些微调，付出的成本看起来有点高了。</p>
+<p>幸好国内的算力租赁平台价格还算公道，操作也还算简便，我们又看到了曙光。</p>
+<p>今天要分享的是在<a target="_blank" rel="noopener" href="https://suanli.cn/">共绩算力</a>平台上跑<a target="_blank" rel="noopener" href="https://github.com/antirez/ds4">ds4</a>本地推理引擎时踩的坑。</p>
+<h2 id="Black-hole"><a href="#Black-hole" class="headerlink" title="Black hole"></a>Black hole</h2><ol>
+<li><p>自己构建并推送到远端的镜像，Dockerfile里面一定要指定Entrypoint，而且得是可以loop的那种，比如<code>tail -f /dev/null</code>，否则节点就会启动失败！</p>
+</li>
+<li><p><strong>ds4</strong>仅支持单卡推理，要是你通过<code>watch -n 1 nvdia-smi</code>发现只有一张卡在跑，那也算正常现象。</p>
+</li>
+<li><p>要想下载一些模型进行微调或者运行，最好还是直接拉取现成的镜像或者自己构建，在节点环境里面下载实在太慢，容易烧钱。</p>
+</li>
+<li><p>自己构建出来的镜像一般都要100GB左右，推送还是有些慢的，最好用AI辅助下，实时监控状态，失败也可以让AI重试（我这里指的是hermes等assistant agent）。</p>
+</li>
+<li><p>镜像仓库存储费用当前还可以，每月有20GB的免费额度，按月结算。</p>
+</li>
+<li><p>不小心误删镜像也没关系，重新推送即可，该平台貌似在删除后还会保留一段时间。</p>
+</li>
+</ol>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>总的来说，大概4块钱一小时就可以租到两张4090和较大内存的机器，还是按秒收费的，除了用来跑模型，也可以用来编译一些大型项目，也可以用来测试你自己的程序等等。</p>
+<p>玩法很多，就看你自己的需求了。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2026/05/09/vless-reality-gonna-to-die/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2026-05-27 14:48:58
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="Computing Power Lease Experience">
-        <div class="time-m-d">05-27</div>
-        <div class="title">
-          <a href="/2026/05/27/Computing-Power-Lease-Experience/">
-            <span>Computing Power Lease Experience</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="vless reality gonna to die">
-        <div class="time-m-d">05-09</div>
-        <div class="title">
-          <a href="/2026/05/09/vless-reality-gonna-to-die/">
-            <span>vless reality gonna to die</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="different behaviour of basename">
-        <div class="time-m-d">05-08</div>
-        <div class="title">
-          <a href="/2026/05/08/different-behaviour-of-basename/">
-            <span>different behaviour of basename</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Harness">
-        <div class="time-m-d">05-02</div>
-        <div class="title">
-          <a href="/2026/05/02/Harness/">
-            <span>Harness</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="GPT Plus之殇">
-        <div class="time-m-d">05-02</div>
-        <div class="title">
-          <a href="/2026/05/02/GPT-Plus%E4%B9%8B%E6%AE%87/">
-            <span>GPT Plus之殇</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="AI-insights-weekly-2026-05-01">
-        <div class="time-m-d">05-01</div>
-        <div class="title">
-          <a href="/2026/05/01/AI-insights-weekly-2026-05-01/">
-            <span>AI-insights-weekly-2026-05-01</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="DeepSeek-v4">
-        <div class="time-m-d">05-01</div>
-        <div class="title">
-          <a href="/2026/05/01/DeepSeek-v4/">
-            <span>DeepSeek-v4</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Fuck day">
-        <div class="time-m-d">04-29</div>
-        <div class="title">
-          <a href="/2026/04/29/fuck-day/">
-            <span>Fuck day</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="GPT Image-2 手相分析">
-        <div class="time-m-d">04-27</div>
-        <div class="title">
-          <a href="/2026/04/27/gpt-image-2-%E6%89%8B%E7%9B%B8%E5%88%86%E6%9E%90/">
-            <span>GPT Image-2 手相分析</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="AI freedom">
-        <div class="time-m-d">04-26</div>
-        <div class="title">
-          <a href="/2026/04/26/ai-freedom/">
-            <span>AI freedom</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Nice food">
-        <div class="time-m-d">04-26</div>
-        <div class="title">
-          <a href="/2026/04/26/nice-food/">
-            <span>Nice food</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="祝好运">
-        <div class="time-m-d">04-10</div>
-        <div class="title">
-          <a href="/2026/04/10/%E7%A5%9D%E5%A5%BD%E8%BF%90/">
-            <span>祝好运</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="fuck windows with qemu">
-        <div class="time-m-d">04-02</div>
-        <div class="title">
-          <a href="/2026/04/02/fuck-windows-with-qemu/">
-            <span>fuck windows with qemu</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="LLM on Android">
-        <div class="time-m-d">03-08</div>
-        <div class="title">
-          <a href="/2026/03/08/LLM-on-Android/">
-            <span>LLM on Android</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="[AI-Thinking] Company Competition">
-        <div class="time-m-d">02-16</div>
-        <div class="title">
-          <a href="/2026/02/16/AI-Thinking-Company-Competition/">
-            <span>[AI-Thinking] Company Competition</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Archived-Online-Documents">
-        <div class="time-m-d">02-07</div>
-        <div class="title">
-          <a href="/2026/02/07/Archived-Online-Documents/">
-            <span>Archived-Online-Documents</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="HomeProxy-Tutorial">
-        <div class="time-m-d">02-04</div>
-        <div class="title">
-          <a href="/2026/02/04/HomeProxy-Tutorial/">
-            <span>HomeProxy-Tutorial</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="HelloGithub-118-comment">
-        <div class="time-m-d">01-31</div>
-        <div class="title">
-          <a href="/2026/01/31/HelloGithub-118-comment/">
-            <span>HelloGithub-118-comment</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Golang-Develop-Record">
-        <div class="time-m-d">01-24</div>
-        <div class="title">
-          <a href="/2026/01/24/Golang-Develop-Record/">
-            <span>Golang-Develop-Record</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Video-backup">
-        <div class="time-m-d">01-17</div>
-        <div class="title">
-          <a href="/2026/01/17/Video-backup/">
-            <span>Video-backup</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="World connecting">
-        <div class="time-m-d">01-03</div>
-        <div class="title">
-          <a href="/2026/01/03/World-connecting/">
-            <span>World connecting</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2025</span>
-          </h2>
-        </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
       
-      <div class="post-item" title="我的第一个充电宝">
-        <div class="time-m-d">12-15</div>
-        <div class="title">
-          <a href="/2025/12/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%85%E7%94%B5%E5%AE%9D/">
-            <span>我的第一个充电宝</span>
-          </a>
-        </div>
-      </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Black-hole"><span class="toc-text">Black hole</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-text">Summary</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="Archived-Offline-Documents">
-        <div class="time-m-d">12-07</div>
-        <div class="title">
-          <a href="/2025/12/07/Archived-Offline-Documents/">
-            <span>Archived-Offline-Documents</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="天马行空随心记">
-        <div class="time-m-d">12-07</div>
-        <div class="title">
-          <a href="/2025/12/07/%E5%A4%A9%E9%A9%AC%E8%A1%8C%E7%A9%BA%E9%9A%8F%E5%BF%83%E8%AE%B0/">
-            <span>天马行空随心记</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="RISV交叉编译器安装">
-        <div class="time-m-d">11-30</div>
-        <div class="title">
-          <a href="/2025/11/30/RISV%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%99%A8%E5%AE%89%E8%A3%85/">
-            <span>RISV交叉编译器安装</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Wayland vs X11">
-        <div class="time-m-d">11-21</div>
-        <div class="title">
-          <a href="/2025/11/21/Wayland-vs-X11/">
-            <span>Wayland vs X11</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="我的第一台路由器">
-        <div class="time-m-d">11-16</div>
-        <div class="title">
-          <a href="/2025/11/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%B0%E8%B7%AF%E7%94%B1%E5%99%A8/">
-            <span>我的第一台路由器</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+  <div id="gitalk-container"></div>
+
+  <script>
+    function loadGitalkSuc() {
+      const gitalk = new Gitalk({
+        clientID: 'Ov23limkk0qt1yYBZwZV',
+        clientSecret: 'f53b76b89152c9e9b9ccb909f6350c119544383b',
+        repo: 'yuziwe.github.io',
+        owner: 'yuziwe',
+        admin: ['yuziwe'],
+        id: location.pathname,
+        distractionFreeMode: false
+      })
+
+      gitalk.render('gitalk-container')
+    }
+  </script>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" onload="loadGitalkSuc(this)"></script>
+  
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -633,6 +521,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Computing%20Power%20Lease%20Experience + '&url=' + https%3A%2F%2Fyuziwe.github.io%2F2026%2F05%2F27%2FComputing-Power-Lease-Experience%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://yuziwe.github.io/2026/05/27/Computing-Power-Lease-Experience/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
