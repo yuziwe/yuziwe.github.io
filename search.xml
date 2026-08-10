@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>LauncherX Developer Notes</title>
+      <link href="/2026/08/10/LauncherX-Developer-Notes/"/>
+      <url>/2026/08/10/LauncherX-Developer-Notes/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>LauncherX 是模仿Windows上的<strong>utools</strong>和Linux的<strong>rofi</strong>风格的程序启动器，目前仅支持<strong>Windows</strong>版本。</p><blockquote><p><strong>utools</strong>不开源，<strong>rofi</strong>开源但不支持Windows，一根筋两头堵</p></blockquote><p>为什么不找找其他开源的程序启动器呢？</p><p>emmmm，都不太好用，我还是喜欢亲力亲为，顺便学习下<strong>Everything</strong>的底层索引机制。</p><p>编写此文目的是记录一次完整的QT+Windows开发路径。</p><h2 id="Tech-Stack"><a href="#Tech-Stack" class="headerlink" title="Tech Stack"></a>Tech Stack</h2><ul><li>QT6</li><li>Windows Kit</li><li>MSVC</li><li>CMake</li><li>Ninja</li><li>SQLite</li><li>Catch</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Fuck KCP</title>
       <link href="/2026/07/20/Fuck-KCP/"/>
       <url>/2026/07/20/Fuck-KCP/</url>
