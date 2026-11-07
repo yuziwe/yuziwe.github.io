@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>How Linux Boot</title>
+      <link href="/2026/11/07/How-Linux-Boot/"/>
+      <url>/2026/11/07/How-Linux-Boot/</url>
+      
+        <content type="html"><![CDATA[<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://wiki.archlinux.org/title/Arch_boot_process">Arch_boot_process</a></li><li><a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface">Unified_Extensible_Firmware_Interface</a></li><li><a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Testing_UEFI_in_systems_without_native_support">Testing_UEFI_in_systems_without_native_support</a></li></ul><h2 id="Mechanism"><a href="#Mechanism" class="headerlink" title="Mechanism"></a>Mechanism</h2><p>一图甚千言。</p><p><img src="/2026/11/07/How-Linux-Boot/how-linux-boots.png" alt="how-linux-boot"></p><p>后续跟上配套实验，我要完全掌控我的机器。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>I am stucked</title>
       <link href="/2026/11/01/I-am-stucked/"/>
       <url>/2026/11/01/I-am-stucked/</url>
