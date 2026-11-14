@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Maximize pension benefits</title>
+      <link href="/2026/11/13/Maximize-pension-benefits/"/>
+      <url>/2026/11/13/Maximize-pension-benefits/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>近期母上大人针对养老这一 affair 突然发问，吾从未有相关的知识储备，有的话也仅仅停留在表面现象。</p><p>据母上所述，可一次性补缴<strong>10w</strong>，后面就能每月拿多少<strong>k</strong>这样子。</p><p>这本质上和投资一样了，区别在于投资可以选择随时抽身离场（说的好像真的一样hhh），但养老不行，投的钱会一直被锁定到退休后才能<strong>分月领取</strong>。</p><p>因此，如何规划养老使得收益最大化的确是一门学问。</p><p>本文仅针对<strong>城乡居民养老保险</strong>设立以下目标：</p><ol><li><p>养老金组成及发放</p></li><li><p>多元化收益探索</p></li><li><p>闲谝</p></li></ol><h2 id="养老金组成及发放"><a href="#养老金组成及发放" class="headerlink" title="养老金组成及发放"></a>养老金组成及发放</h2><p>根据<a href="https://www.gov.cn/zhengce/content/2014-02/26/content_8656.htm">国务院关于建立统一的城乡居民基本养老保险制度的意见（国发〔2014〕8号）</a><br>（以下简称<em>意见</em>）所述，养老金来源主要由以下三部分组成：</p><ul><li>个人缴费：即参保人每年根据当地不同的缴费档次缴纳的保险费用</li><li>集体补助：即由社会其他经济组织或<strong>个人</strong>（例如父母的子女）根据最高缴费档次自愿补助其他参保人</li><li>政府补贴：即由政府根据标准全额或成比例地补贴参保人</li></ul><p>落到具体的人上，一般就是<em>自己缴的 + 子女资助的 + 政府给的</em>就是<strong>个人账户</strong>里实际存在的钱了。</p><blockquote><p>知道怎么交了，怎么领呢？</p></blockquote><p>A: 满 60 周岁，累计缴费满 15 年即可领取。</p><blockquote><p>知道怎么领了，我每个月领多少？</p></blockquote><p>A: 意见中提到，最后参保人享受的养老金待遇由两部分构成：</p><ul><li>基础养老金：这部分由政府直接发放，根据具体情况，<strong>适当调整</strong>，中央仅确定最低标准，实际发放需要由当地政府自己定</li><li>个人账户养老金：根据动态调整的计发系数及账户余额决定每个月能领多少钱</li></ul><blockquote><p>需要注意的是，最终享受的养老金待遇是<strong>支付终身</strong>的，什么意思？</p></blockquote><p>A: 简单来说，就是即使你个人账户里面钱<strong>领完了</strong>，但只要你还活着，政府照样发给你和之前一样多的钱。</p><p>OKay，理论和依据说完了，我们来看一个具体的例子，做做简单的算术题。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">小明父母今年 50 岁，</span><br></pre></td></tr></table></figure><h2 id="多元化收益探索"><a href="#多元化收益探索" class="headerlink" title="多元化收益探索"></a>多元化收益探索</h2><h2 id="闲谝"><a href="#闲谝" class="headerlink" title="闲谝"></a>闲谝</h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://www.gov.cn/zhengce/content/2014-02/26/content_8656.htm">国务院关于建立统一的城乡居民基本养老保险制度的意见（国发〔2014〕8号）</a>，国务院，2014-02-26</li><li><a href="https://www.gov.cn/gongbao/2026/issue_12646/202603/content_7064134.html">2026年政府工作报告（国务院公报2026年第9号）</a>，2026-03-05</li><li><a href="https://www.gov.cn/yaowen/liebiao/202603/content_7062633.htm">中华人民共和国国民经济和社会发展第十五个五年规划纲要</a>，全国人大，2026-03-13</li><li><a href="https://www.gov.cn/lianbo/202607/content_7074801.htm">人力资源和社会保障事业发展“十五五”规划</a>，人社部，2026-07</li><li><a href="https://www.zj.gov.cn/art/2025/6/10/art_1229396854_60284425.html">关于进一步保障和改善民生 着力解决群众急难愁盼的意见</a>，中办、国办，2025-06（地方政府网站转载）</li><li><a href="https://rst.sc.gov.cn/rst/xzgfxwj/2026/10/9/0b1f4597ea3f4ea1b7b1b84df7eb45d1.shtml">关于2026年提高城乡居民基本养老保险基础养老金最低标准的通知</a>，四川省人社厅、财政厅，2026-10-09</li><li><a href="https://www.mohrss.gov.cn/SYrlzyhshbzb/zwgk/szrs/tjgb/">2025年度人力资源和社会保障事业发展统计公报</a>，人社部，2026-07-16</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CVE-2026-123158</title>
       <link href="/2026/11/08/CVE-2026-123158/"/>
       <url>/2026/11/08/CVE-2026-123158/</url>
