@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="700" viewBox="0 0 1060 700" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" role="img" aria-label="中国年出生人口 2000—2050">
+<rect width="1060" height="700" fill="#ffffff"/>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2563eb" stop-opacity="0.12"/><stop offset="100%" stop-color="#2563eb" stop-opacity="0"/></linearGradient></defs>
+<text x="84" y="44" font-size="23" font-weight="700" fill="#101828">中国年出生人口：联合国中方案预测 vs 国家统计局实际值</text>
+<text x="84" y="72" font-size="13" fill="#667085">蓝实线＝联合国《世界人口展望 2024》估计（2000—2023）　蓝虚线＝同一报告中方案预测（2024—2050）　橙点＝国家统计局已公布实际值</text>
+<line x1="84" y1="582.0" x2="910.0" y2="582.0" stroke="#eef1f5" stroke-width="1"/>
+<text x="72" y="586.0" text-anchor="end" font-size="12" fill="#98a2b3">0万</text>
+<line x1="84" y1="488.0" x2="910.0" y2="488.0" stroke="#eef1f5" stroke-width="1"/>
+<text x="72" y="492.0" text-anchor="end" font-size="12" fill="#98a2b3">400万</text>
+<line x1="84" y1="394.0" x2="910.0" y2="394.0" stroke="#eef1f5" stroke-width="1"/>
+<text x="72" y="398.0" text-anchor="end" font-size="12" fill="#98a2b3">800万</text>
+<line x1="84" y1="300.0" x2="910.0" y2="300.0" stroke="#eef1f5" stroke-width="1"/>
+<text x="72" y="304.0" text-anchor="end" font-size="12" fill="#98a2b3">1200万</text>
+<line x1="84" y1="206.0" x2="910.0" y2="206.0" stroke="#eef1f5" stroke-width="1"/>
+<text x="72" y="210.0" text-anchor="end" font-size="12" fill="#98a2b3">1600万</text>
+<line x1="84" y1="112.0" x2="910.0" y2="112.0" stroke="#eef1f5" stroke-width="1"/>
+<text x="72" y="116.0" text-anchor="end" font-size="12" fill="#98a2b3">2000万</text>
+<text x="84.0" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2000</text>
+<text x="166.6" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2005</text>
+<text x="249.2" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2010</text>
+<text x="331.8" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2015</text>
+<text x="414.4" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2020</text>
+<text x="497.0" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2025</text>
+<text x="579.6" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2030</text>
+<text x="662.2" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2035</text>
+<text x="744.8" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2040</text>
+<text x="827.4" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2045</text>
+<text x="910.0" y="606" text-anchor="middle" font-size="12" fill="#98a2b3">2050</text>
+<line x1="84" y1="582" x2="910" y2="582" stroke="#b9c0cc" stroke-width="1"/>
+<text x="84" y="98" font-size="12" fill="#98a2b3">单位：万人</text>
+<polygon points="464.0,372.9 480.5,374.7 497.0,377.3 513.5,379.3 530.0,381.5 546.6,383.2 563.1,384.9 579.6,385.6 596.1,386.2 612.6,386.1 629.2,386.1 645.7,385.4 662.2,384.2 678.7,383.1 695.2,381.4 711.8,379.9 728.3,378.9 744.8,378.0 761.3,377.8 777.8,377.6 794.4,377.6 810.9,378.9 827.4,381.2 843.9,384.8 860.4,389.5 877.0,395.4 893.5,401.8 910.0,408.8 910.0,582 464.0,582" fill="url(#g)"/>
+<polyline points="84.0,169.5 100.5,192.2 117.0,197.0 133.6,200.8 150.1,195.2 166.6,191.8 183.1,185.6 199.6,177.7 216.2,165.7 232.7,158.3 249.2,161.1 265.7,163.1 282.2,129.7 298.8,152.0 315.3,140.9 331.8,170.3 348.3,151.3 364.8,152.9 381.4,221.1 397.9,238.5 414.4,303.7 430.9,336.2 447.4,359.8 464.0,372.9" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="464.0,372.9 480.5,374.7 497.0,377.3 513.5,379.3 530.0,381.5 546.6,383.2 563.1,384.9 579.6,385.6 596.1,386.2 612.6,386.1 629.2,386.1 645.7,385.4 662.2,384.2 678.7,383.1 695.2,381.4 711.8,379.9 728.3,378.9 744.8,378.0 761.3,377.8 777.8,377.6 794.4,377.6 810.9,378.9 827.4,381.2 843.9,384.8 860.4,389.5 877.0,395.4 893.5,401.8 910.0,408.8" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="7 5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="497.0" y1="112" x2="497.0" y2="582" stroke="#f04438" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+<text x="483.0" y="564" text-anchor="end" font-size="12" fill="#b42318">← 联合国估计</text>
+<text x="511.0" y="564" font-size="12" fill="#b42318">联合国预测 →</text>
+<circle cx="282.2" cy="129.7" r="3.6" fill="#2563eb"/>
+<text x="294.2" y="121.7" font-size="11.5" fill="#1d4ed8">峰值 2012 年 1925万</text>
+<circle cx="464.0" cy="370.0" r="5" fill="#f97316" stroke="#fff" stroke-width="2"/>
+<circle cx="480.5" cy="357.8" r="5" fill="#f97316" stroke="#fff" stroke-width="2"/>
+<circle cx="497.0" cy="395.9" r="5" fill="#f97316" stroke="#fff" stroke-width="2"/>
+<text x="480.5" y="343.8" text-anchor="middle" font-size="11.5" fill="#c2410c" font-weight="600">954万</text>
+<text x="455.0" y="387.0" text-anchor="end" font-size="11.5" fill="#c2410c">902万</text>
+<text x="506.0" y="414.9" font-size="11.5" fill="#c2410c" font-weight="600">792万（统计局）</text>
+<circle cx="497.0" cy="377.3" r="4" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+<line x1="497.0" y1="377.3" x2="497.0" y2="395.9" stroke="#f0453a" stroke-width="1.4" stroke-dasharray="3 3"/>
+<text x="508.0" y="365.3" font-size="11.5" fill="#1d4ed8">联合国预测 871万（高估 79万）</text>
+<circle cx="910.0" cy="408.8" r="3.6" fill="#2563eb"/>
+<text x="920.0" y="412.8" font-size="11.5" fill="#1d4ed8">2050 约 737万</text>
+<line x1="100" y1="452" x2="130" y2="452" stroke="#2563eb" stroke-width="2.6"/>
+<text x="142" y="456" font-size="12" fill="#475467">联合国估计（2000—2023）</text>
+<line x1="100" y1="478" x2="130" y2="478" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="7 5"/>
+<text x="142" y="482" font-size="12" fill="#475467">联合国中方案预测（2024—2050）</text>
+<circle cx="115" cy="504" r="5" fill="#f97316" stroke="#fff" stroke-width="1.6"/>
+<text x="142" y="508" font-size="12" fill="#475467">国家统计局实际值</text>
+<text x="84" y="638" font-size="11.5" fill="#7a879c">数据来源：联合国《世界人口展望 2024》中方案（population.un.org/wpp，经 Our World in Data 整理）；</text>
+<text x="84" y="655" font-size="11.5" fill="#7a879c">　　　　　国家统计局 2024 年数据（2025-01-17 发布）、2025 年统计公报（2026-02-28）。</text>
+<text x="84" y="672" font-size="11.5" fill="#7a879c">注意：WPP 2024 中 2024、2025 年仍为预测值（882 万、871 万），实际为 954 万、792 万；</text>
+<text x="84" y="689" font-size="11.5" fill="#7a879c">　　　联合国估计与统计局口径存在差异，曲线水平值以联合国口径为准，趋势比绝对值可靠。</text>
+</svg>
